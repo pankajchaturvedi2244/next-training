@@ -1,0 +1,4 @@
+{"timestamp":"2024-03-24T12:17:05.106Z","method":"GET","url":"/users/","ip":"::1","body":{},"params":{"0":"users/"},"query":{}}
+{"timestamp":"2024-03-24T12:17:17.792Z","method":"GET","url":"/users/","ip":"::1","body":{},"params":{"0":"users/"},"query":{}}
+{"timestamp":"2024-03-24T12:17:22.040Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"ewwrewrwe","lastName":"23","email":"john.doe@example.com","address":{"city":"ewewewew","state":"AnyState","country":"USA","zip":22,"address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-03-24T12:17:31.779Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"ewwrewrwe","lastName":"23","email":"john.doe@example.com","address":{"city":"ewewewew","state":"AnyState","country":"USA","zip":"22","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}

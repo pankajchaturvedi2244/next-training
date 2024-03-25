@@ -1,23 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
-import { AddressDto } from '../../libs/common/src/dto/address.dto';
 import { UpdateUserDto } from './dto/update-user-dto';
 
 @Injectable()
 export class UsersService {
   // mock 5 users
-  private users: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    address: AddressDto;
-  }[] = [
+  private users: UpdateUserDto[] = [
     {
       id: 1,
       firstName: 'John',
       lastName: 'Doe',
       email: 'john.doe@example.com',
+      password: 'password',
       address: {
         city: 'Anycity',
         state: 'AnyState',
@@ -32,6 +26,7 @@ export class UsersService {
       firstName: 'Jane',
       lastName: 'Smith',
       email: 'jane.smith@example.com',
+      password: 'password1',
       address: {
         city: 'Anycity',
         state: 'AnyState',
@@ -45,6 +40,8 @@ export class UsersService {
       id: 3,
       firstName: 'Michael',
       lastName: 'Johnson',
+      password: 'password2',
+
       email: 'michael.johnson@example.com',
       address: {
         city: 'Anycity',
@@ -59,6 +56,8 @@ export class UsersService {
       id: 4,
       firstName: 'Emily',
       lastName: 'Brown',
+      password: 'password3',
+
       email: 'emily.brown@example.com',
       address: {
         city: 'Anycity',
@@ -73,6 +72,8 @@ export class UsersService {
       id: 5,
       firstName: 'David',
       lastName: 'Wilson',
+      password: 'password21',
+
       email: 'david.wilson@example.com',
       address: {
         city: 'Anycity',
@@ -88,6 +89,8 @@ export class UsersService {
       firstName: 'Sarah',
       lastName: 'Martinez',
       email: 'sarah.martinez@example.com',
+      password: 'password1',
+
       address: {
         city: 'Anycity',
         state: 'AnyState',
@@ -102,6 +105,8 @@ export class UsersService {
       firstName: 'Daniel',
       lastName: 'Taylor',
       email: 'daniel.taylor@example.com',
+      password: 'password1',
+
       address: {
         city: 'Anycity',
         state: 'AnyState',
@@ -116,6 +121,8 @@ export class UsersService {
       firstName: 'Olivia',
       lastName: 'Thomas',
       email: 'olivia.thomas@example.com',
+      password: 'password1',
+
       address: {
         city: 'Anycity',
         state: 'AnyState',
@@ -132,6 +139,9 @@ export class UsersService {
   }
   getUserById(id: string): object {
     return this.users.find((user) => user.id === +id);
+  }
+  getUserByEmail(email: string): UpdateUserDto {
+    return this.users.find((user) => user.email === email);
   }
   createUser(user: CreateUserDto): object {
     // add user to the list of users
