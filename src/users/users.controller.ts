@@ -15,6 +15,7 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user-dto';
+import { CustomValidationPipe } from './custom-validation.pipe';
 
 @Controller('users')
 export class UsersController {
@@ -29,13 +30,19 @@ export class UsersController {
   // route handler for the GET /users/:id endpoint
   @Get(':id')
   @HttpCode(HttpStatus.AMBIGUOUS)
-  getUserById(@Param('id', ParseIntPipe) id: string) {
+  getUserById(
+    @Param(
+      'id',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: string,
+  ) {
     return this.userService.getUserById(id);
   }
   // route handler for the POST /users endpoint
   @Post()
   // validate the request body using the CreateUserDto
-  @UsePipes(ValidationPipe)
+  @UsePipes(new CustomValidationPipe())
   createUser(
     @Body()
     user: CreateUserDto,

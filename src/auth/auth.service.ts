@@ -22,7 +22,8 @@ export class AuthService {
       const { password, ...result } = user;
       console.log('result', result, password);
       return result;
+    } else {
+      return null;
     }
-    return null;
   }
 }

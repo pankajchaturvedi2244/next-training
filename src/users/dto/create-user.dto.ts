@@ -15,6 +15,9 @@ export class CreateUserDto {
   firstName: string;
 
   @IsString()
+  timeStamp: string;
+
+  @IsString()
   lastName: string;
 
   @IsString()

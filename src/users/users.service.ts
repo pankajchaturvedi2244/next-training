@@ -12,6 +12,7 @@ export class UsersService {
       lastName: 'Doe',
       email: 'john.doe@example.com',
       password: 'password',
+      timeStamp: '',
       address: {
         city: 'Anycity',
         state: 'AnyState',
@@ -25,6 +26,7 @@ export class UsersService {
       id: 2,
       firstName: 'Jane',
       lastName: 'Smith',
+      timeStamp: '',
       email: 'jane.smith@example.com',
       password: 'password1',
       address: {
@@ -41,7 +43,7 @@ export class UsersService {
       firstName: 'Michael',
       lastName: 'Johnson',
       password: 'password2',
-
+      timeStamp: '',
       email: 'michael.johnson@example.com',
       address: {
         city: 'Anycity',
@@ -57,7 +59,7 @@ export class UsersService {
       firstName: 'Emily',
       lastName: 'Brown',
       password: 'password3',
-
+      timeStamp: '',
       email: 'emily.brown@example.com',
       address: {
         city: 'Anycity',
@@ -73,7 +75,7 @@ export class UsersService {
       firstName: 'David',
       lastName: 'Wilson',
       password: 'password21',
-
+      timeStamp: '',
       email: 'david.wilson@example.com',
       address: {
         city: 'Anycity',
@@ -90,39 +92,7 @@ export class UsersService {
       lastName: 'Martinez',
       email: 'sarah.martinez@example.com',
       password: 'password1',
-
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 7,
-      firstName: 'Daniel',
-      lastName: 'Taylor',
-      email: 'daniel.taylor@example.com',
-      password: 'password1',
-
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 8,
-      firstName: 'Olivia',
-      lastName: 'Thomas',
-      email: 'olivia.thomas@example.com',
-      password: 'password1',
-
+      timeStamp: '',
       address: {
         city: 'Anycity',
         state: 'AnyState',
