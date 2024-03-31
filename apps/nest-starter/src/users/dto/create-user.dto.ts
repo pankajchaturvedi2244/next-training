@@ -6,8 +6,8 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { AddressDto } from '../../../libs/common/src/dto/address.dto';
 import { Type } from 'class-transformer';
+import { AddressDto } from '@app/common/dto/address.dto';
 
 export class CreateUserDto {
   @IsString()

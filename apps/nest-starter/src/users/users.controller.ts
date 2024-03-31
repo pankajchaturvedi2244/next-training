@@ -16,10 +16,17 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user-dto';
 import { CustomValidationPipe } from './custom-validation.pipe';
+import { GetUserIP } from './user.decorator';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
+
+  @Get('profile')
+  getProfile(@GetUserIP() IP: string) {
+    return IP;
+  }
+
   // route handler for the GET /users endpoint
   @Get()
   // use http 700 for the response
