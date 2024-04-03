@@ -15,7 +15,7 @@ import { UsersModule } from '../users/users.module';
     JwtModule.register({
       secret: jwtConstants.secret,
       secretOrPrivateKey: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '2h' },
     }),
   ],
   providers: [AuthService, LocalStrategy, JWTStrategy],

@@ -1,134 +1,73 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user-dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { User } from './schemas/User.schema';
+import { Model } from 'mongoose';
+import { Address } from './schemas/Address.schema';
 
 @Injectable()
 export class UsersService {
-  // mock 5 users
-  private users: UpdateUserDto[] = [
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      password: 'password',
-      timeStamp: '',
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 2,
-      firstName: 'Jane',
-      lastName: 'Smith',
-      timeStamp: '',
-      email: 'jane.smith@example.com',
-      password: 'password1',
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 3,
-      firstName: 'Michael',
-      lastName: 'Johnson',
-      password: 'password2',
-      timeStamp: '',
-      email: 'michael.johnson@example.com',
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 4,
-      firstName: 'Emily',
-      lastName: 'Brown',
-      password: 'password3',
-      timeStamp: '',
-      email: 'emily.brown@example.com',
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 5,
-      firstName: 'David',
-      lastName: 'Wilson',
-      password: 'password21',
-      timeStamp: '',
-      email: 'david.wilson@example.com',
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-    {
-      id: 6,
-      firstName: 'Sarah',
-      lastName: 'Martinez',
-      email: 'sarah.martinez@example.com',
-      password: 'password1',
-      timeStamp: '',
-      address: {
-        city: 'Anycity',
-        state: 'AnyState',
-        country: 'USA',
-        zip: '12345',
-        address1: '123 Oak St',
-        address2: 'Apt 456',
-      },
-    },
-  ];
+  constructor(
+    @InjectModel(User.name) private userModel: Model<User>,
+    @InjectModel(Address.name) private addressModel: Model<Address>,
+  ) {}
 
-  getUsers(): Array<object> {
-    return this.users;
-  }
-  getUserById(id: string): object {
-    return this.users.find((user) => user.id === +id);
-  }
-  getUserByEmail(email: string): UpdateUserDto {
-    return this.users.find((user) => user.email === email);
-  }
-  createUser(user: CreateUserDto): object {
-    // add user to the list of users
-    this.users.push({ id: this.users.length + 1, ...user });
-    return user;
-  }
-  updateUser(id: string, user: UpdateUserDto): object {
-    const userIndex = this.users.findIndex((user) => user.id === +id);
-    this.users[userIndex] = { ...this.users[userIndex], ...user };
-    return this.users[userIndex];
+  async userExists(id: string): Promise<boolean> {
+    const user = await this.userModel.findById(id).exec();
+    return !!user;
   }
 
-  deleteUser(id: string): string {
-    if (!this.users.find((user) => user.id === +id)) {
-      return 'User not found';
+  async getUsers(): Promise<Array<User>> {
+    return await this.userModel.find().exec();
+  }
+  async getUserById(id: string): Promise<object> {
+    const user = await this.userModel.findById(id).exec();
+    return user ? user.populate('address') : null;
+  }
+
+  // get way to assign type userdto
+  async getUserByEmail(email: string): Promise<any> {
+    const user = await this.userModel.findOne({ email: email });
+    return user ? user : null;
+  }
+  async createUser({ address, ...user }: CreateUserDto): Promise<object> {
+    // add user to the list of users and return the user
+
+    try {
+      if (address) {
+        const addr = new this.addressModel(address);
+        await addr.save();
+        const newUser = await new this.userModel({
+          ...user,
+          address: addr._id,
+        }).save();
+        // throw error if user is not created
+        console.log(newUser.errors, 'newUser.errors');
+        return newUser.populate('address');
+      } else {
+        const newUser = await new this.userModel(user).save();
+        // throw error if user is not created
+        return newUser;
+      }
+    } catch (error) {
+      // how to handle error as email unique or other unique fields
+      console.log(error, 'error');
+      return null;
     }
-    this.users = this.users.filter((user) => user.id !== +id);
-    return 'User deleted successfully';
+  }
+  async updateUser(id: string, user: UpdateUserDto): Promise<object> {
+    const users = await this.userModel.findByIdAndUpdate(id, user);
+    return users;
+  }
+
+  async deleteUser(id: string): Promise<any> {
+    // give message if user is deleted
+    const userDeleted = await this.userModel.findByIdAndDelete(id);
+    if (!userDeleted) {
+      return null;
+    }
+    console.log(userDeleted, 'userDeleted');
+    return userDeleted;
   }
 }

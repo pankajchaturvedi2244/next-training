@@ -4,21 +4,30 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpException,
   HttpStatus,
   Param,
-  ParseIntPipe,
   Patch,
   Post,
+  UseGuards,
+  UseInterceptors,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user-dto';
-import { CustomValidationPipe } from './custom-validation.pipe';
 import { GetUserIP } from './user.decorator';
+import { CustomValidationPipe } from './pipes/custom-validation.pipe';
+import { MongoIdValidationPipe } from './pipes/mongoid-validation-pipe';
+import { UsersGuard } from './guards/userguards/users.guard';
+import { Roles } from './decorators/roles.decorator';
+import { RolesguardGuard } from './guards/rolesguard/rolesguard.guard';
+import { JwtGuard } from 'apps/nest-starter/src/common/guards/jwt/jwt.guards';
+import { FormatResponseInterceptor } from '../common/interceptors/formatter.interceptor';
 
 @Controller('users')
+@UseInterceptors(FormatResponseInterceptor)
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
@@ -31,41 +40,65 @@ export class UsersController {
   @Get()
   // use http 700 for the response
   @HttpCode(HttpStatus.ACCEPTED)
+  @UseGuards(JwtGuard)
   getUsers() {
     return this.userService.getUsers();
   }
   // route handler for the GET /users/:id endpoint
   @Get(':id')
-  @HttpCode(HttpStatus.AMBIGUOUS)
-  getUserById(
-    @Param(
-      'id',
-      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
-    )
+  @Roles(['Admin']) // Call the Roles decorator as a function with the required arguments
+  @UseGuards(UsersGuard, RolesguardGuard)
+  async getUserById(
+    @Param('id', MongoIdValidationPipe)
     id: string,
   ) {
-    return this.userService.getUserById(id);
+    const user = await this.userService.getUserById(id);
+    if (!user) {
+      return new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+    return user;
   }
   // route handler for the POST /users endpoint
   @Post()
   // validate the request body using the CreateUserDto
   @UsePipes(new CustomValidationPipe())
-  createUser(
+  async createUser(
     @Body()
     user: CreateUserDto,
   ) {
-    return this.userService.createUser(user);
+    const newUser = await this.userService.createUser(user);
+    if (!newUser) {
+      throw new HttpException('User not created', HttpStatus.BAD_REQUEST);
+    }
+
+    return newUser;
   }
   // route handler for the PATCH /users/:id endpoint
   @Patch(':id')
-  @HttpCode(HttpStatus.HTTP_VERSION_NOT_SUPPORTED)
+  //validate id using MongoIdValidationPipe and
+  // validate the request body using the ValidationPipe
   @UsePipes(ValidationPipe)
-  updateUser(@Param('id') id: string, @Body() user: UpdateUserDto) {
-    return this.userService.updateUser(id, user);
+  async updateUser(
+    @Param('id', MongoIdValidationPipe) id: string,
+    @Body() user: UpdateUserDto,
+  ) {
+    const updatedUser = await this.userService.updateUser(id, user);
+
+    if (!updatedUser) {
+      return new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
   }
   // route handler for the DELETE /users/:id endpoint
   @Delete(':id')
-  deleteUser(@Param('id') id: string) {
-    return this.userService.deleteUser(id);
+  async deleteUser(@Param('id') id: string) {
+    const deletedUser = await this.userService.deleteUser(id);
+
+    if (!deletedUser) {
+      return new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+    return {
+      message: 'User deleted successfully',
+      deletedUser,
+    };
   }
 }

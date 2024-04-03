@@ -15,10 +15,11 @@ export class CreateUserDto {
   firstName: string;
 
   @IsString()
-  timeStamp: string;
+  lastName: string;
 
   @IsString()
-  lastName: string;
+  @IsOptional()
+  timeStamp: string;
 
   @IsString()
   @IsEmail()

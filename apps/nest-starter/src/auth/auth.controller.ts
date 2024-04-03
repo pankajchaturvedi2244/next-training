@@ -1,34 +1,35 @@
 import {
+  Body,
   Controller,
   HttpException,
   HttpStatus,
   Post,
   Req,
-  UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthGuard } from '@nestjs/passport';
+import { AuthDto } from './dto/auth.dto';
+// import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @UseGuards(AuthGuard('local'))
-  @Post('login/local')
-  async login(@Req() req) {
-    try {
-      return this.authService.validateUser(req.user, req.body.password);
-    } catch (error) {
+  // @UseGuards(AuthGuard('local'))
+  @Post('login')
+  @UsePipes(ValidationPipe)
+  async login(@Req() req, @Body() payLoad: AuthDto) {
+    const user = await this.authService.validateUser(payLoad);
+    if (!user) {
       throw new HttpException(
         {
-          status: HttpStatus.FORBIDDEN,
-          error: 'This is a custom message',
+          status: HttpStatus.UNAUTHORIZED,
+          error: 'Invalid Credentials',
         },
         HttpStatus.FORBIDDEN,
-        {
-          cause: error,
-        },
       );
     }
+    return user;
   }
 }

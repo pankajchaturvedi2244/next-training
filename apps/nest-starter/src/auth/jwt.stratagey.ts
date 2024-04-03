@@ -1,7 +1,6 @@
 import { PassportStrategy } from '@nestjs/passport';
-import { ExtractJwt } from 'passport-jwt';
+import { ExtractJwt, Strategy } from 'passport-jwt';
 import { AuthService } from './auth.service';
-import { Strategy } from 'passport-local';
 import { Injectable } from '@nestjs/common';
 import { jwtConstants } from './conststants';
 
@@ -15,9 +14,10 @@ export class JWTStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(username: string, password: string) {
+  async validate(email: string, password: string) {
+    console.log('inside jwt strategy', email, password);
     return {
-      username: username,
+      email: email,
       password: password,
     };
   }
