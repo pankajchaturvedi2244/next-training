@@ -7,10 +7,9 @@ export class UsersGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    console.log(context, 'I am a guard and I am protecting the users route');
     // return true to allow access to the route
     const request = context.switchToHttp().getRequest<Request>();
-    console.log(request, 'at user guard');
+    console.log(request.user, 'at user guard');
     return true;
   }
 }

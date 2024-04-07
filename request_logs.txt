@@ -288,3 +288,99 @@
 {"timestamp":"2024-04-03T20:35:19.827Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.do2e@example.com","password":"password","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
 {"timestamp":"2024-04-03T20:37:15.736Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.do2e@example.com","password":"password","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
 {"timestamp":"2024-04-03T20:37:35.249Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.do2e@example.com","password":"password","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:27:23.545Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.do2e@example.com","password":"password","role":"admin","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:28:08.779Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.do2e@example.com","password":"password","role":"admin","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:28:58.221Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.do2e@example.com","password":"password","role":"admin","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:29:47.375Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.doe@ex1ample.com","password":"password","role":"admin","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:30:26.667Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"john.doe@ex1ample.com","password":"password","role":"admin","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:30:39.384Z","method":"POST","url":"/users","ip":"::1","body":{"firstName":"John","lastName":"Doe","email":"admin@gmail.com","password":"password","role":"admin","timeStamp":"","address":{"city":"Anycity","state":"AnyState","country":"USA","zip":"12345","address1":"123 Oak St","address2":"Apt 456"}},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T18:31:44.494Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:32:41.165Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:33:42.529Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:34:00.396Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:34:01.427Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:49:24.700Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:50:19.177Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:50:58.647Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:52:28.827Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:52:44.362Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:52:46.076Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:53:17.657Z","method":"PATCH","url":"/users/6612e64f6f4fe42b0b8e8801","ip":"::1","body":{"role":"admin","password":"admin"},"params":{"0":"users/6612e64f6f4fe42b0b8e8801"},"query":{}}
+{"timestamp":"2024-04-07T18:55:23.154Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"password"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:55:29.915Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:55:35.627Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:55:37.036Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:56:31.021Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:56:35.069Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"a44dmin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:56:37.019Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"a44dmin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:56:38.160Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"a44dmin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:56:59.017Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"a44dmin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:57:04.328Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:57:08.882Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:57:31.228Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:58:03.817Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:58:23.574Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:58:49.972Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:59:18.296Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T18:59:39.352Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:01:11.725Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:01:13.457Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:01:15.017Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:01:30.167Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:01:35.536Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"a2dmin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:01:39.007Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:02:58.584Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:03:29.893Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:04:04.311Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:05:11.665Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:06:21.831Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:08:40.561Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:09:27.324Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:10:02.601Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:10:30.358Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:10:58.383Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:14:57.796Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:15:04.619Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:15:05.423Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:15:09.426Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:15:12.051Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:15:12.763Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:15:23.124Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:15:40.243Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:18:03.452Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:20:36.821Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:21:48.816Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:21:50.469Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:21:51.358Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:22:08.752Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:22:33.126Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:23:06.280Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:23:53.557Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:24:33.390Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:24:40.110Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:25:11.657Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:25:57.674Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:00.904Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:02.058Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:02.950Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:13.821Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:14.960Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:15.827Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:16.601Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:17.456Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:26:25.459Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:26:37.792Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:27:59.018Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:28:07.410Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:28:09.640Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:28:18.127Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:28:36.293Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"admin@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:28:52.339Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:29:40.663Z","method":"PATCH","url":"/users/660d9162dedf3b9326797322","ip":"::1","body":{"role":"user","password":"admin","email":"user@gmail.com"},"params":{"0":"users/660d9162dedf3b9326797322"},"query":{}}
+{"timestamp":"2024-04-07T19:30:06.523Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"user@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:30:17.439Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:30:40.448Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:30:48.402Z","method":"POST","url":"/auth/login","ip":"::1","body":{"email":"user@gmail.com","password":"admin"},"params":{"0":"auth/login"},"query":{}}
+{"timestamp":"2024-04-07T19:30:58.687Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:32:42.927Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}
+{"timestamp":"2024-04-07T19:32:59.302Z","method":"GET","url":"/users","ip":"::1","body":{},"params":{"0":"users"},"query":{}}

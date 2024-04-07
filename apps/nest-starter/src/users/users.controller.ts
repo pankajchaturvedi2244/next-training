@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  HttpCode,
   HttpException,
   HttpStatus,
   Param,
@@ -23,8 +22,8 @@ import { MongoIdValidationPipe } from './pipes/mongoid-validation-pipe';
 import { UsersGuard } from './guards/userguards/users.guard';
 import { Roles } from './decorators/roles.decorator';
 import { RolesguardGuard } from './guards/rolesguard/rolesguard.guard';
-import { JwtGuard } from 'apps/nest-starter/src/common/guards/jwt/jwt.guards';
 import { FormatResponseInterceptor } from '../common/interceptors/formatter.interceptor';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('users')
 @UseInterceptors(FormatResponseInterceptor)
@@ -38,9 +37,8 @@ export class UsersController {
 
   // route handler for the GET /users endpoint
   @Get()
-  // use http 700 for the response
-  @HttpCode(HttpStatus.ACCEPTED)
-  @UseGuards(JwtGuard)
+  @Roles(['admin'])
+  @UseGuards(AuthGuard('jwt'), UsersGuard, RolesguardGuard)
   getUsers() {
     return this.userService.getUsers();
   }
@@ -80,7 +78,11 @@ export class UsersController {
   @UsePipes(ValidationPipe)
   async updateUser(
     @Param('id', MongoIdValidationPipe) id: string,
-    @Body() user: UpdateUserDto,
+    @Body(
+      new CustomValidationPipe(),
+      new ValidationPipe({ skipMissingProperties: true }),
+    )
+    user: UpdateUserDto,
   ) {
     const updatedUser = await this.userService.updateUser(id, user);
 

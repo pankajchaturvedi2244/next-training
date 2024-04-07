@@ -29,6 +29,10 @@ export class CreateUserDto {
   @IsOptional()
   password: string;
 
+  @IsString()
+  @IsOptional()
+  role: string;
+
   @ValidateNested()
   @Type(() => AddressDto)
   @IsObject()

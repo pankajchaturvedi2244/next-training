@@ -1,7 +1,9 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { AuthDto } from './dto/auth.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -18,15 +20,22 @@ export class AuthService {
   }
 
   async validateUser({ email, password }: AuthDto): Promise<any> {
-    const user = await this.usersService.getUserByEmail(email);
+    const hashedPassword = password;
 
-    if (user && user.password === password) {
+    const user = await this.usersService.getUserByEmail(email);
+    const isMatch = await bcrypt.compare(hashedPassword, user.password);
+    console.log('isMatch', isMatch, user.password);
+
+    if (user && isMatch) {
       const { password, ...result } = user;
-      console.log('result', result, password);
+
       const jwt = await this.jwtService.sign(result);
-      return jwt;
+      // delete user.password and return user and jwt
+      const updatedUser = { ...result._doc, access_token: jwt };
+      delete updatedUser.password;
+      return updatedUser;
     } else {
-      return null;
+      throw new UnauthorizedException('Invalid Credentials');
     }
   }
 }

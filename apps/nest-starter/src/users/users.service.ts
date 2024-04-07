@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user-dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -28,7 +28,9 @@ export class UsersService {
 
   // get way to assign type userdto
   async getUserByEmail(email: string): Promise<any> {
-    const user = await this.userModel.findOne({ email: email });
+    const user = await this.userModel
+      .findOne({ email: email })
+      .select('+password');
     return user ? user : null;
   }
   async createUser({ address, ...user }: CreateUserDto): Promise<object> {
@@ -51,14 +53,15 @@ export class UsersService {
         return newUser;
       }
     } catch (error) {
-      // how to handle error as email unique or other unique fields
-      console.log(error, 'error');
+      if (error.code === 11000) {
+        throw new HttpException('Email already exists', 400);
+      }
       return null;
     }
   }
   async updateUser(id: string, user: UpdateUserDto): Promise<object> {
     const users = await this.userModel.findByIdAndUpdate(id, user);
-    return users;
+    return users ? users.populate('address') : null;
   }
 
   async deleteUser(id: string): Promise<any> {

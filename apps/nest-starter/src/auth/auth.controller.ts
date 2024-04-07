@@ -27,9 +27,10 @@ export class AuthController {
           status: HttpStatus.UNAUTHORIZED,
           error: 'Invalid Credentials',
         },
-        HttpStatus.FORBIDDEN,
+        HttpStatus.UNAUTHORIZED,
       );
     }
+
     return user;
   }
 }

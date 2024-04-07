@@ -8,15 +8,15 @@ export class LoggerMiddleware implements NestMiddleware {
 
   use(req: Request, res: Response, next: NextFunction) {
     // Log request details
-    this.logRequestDetails(req);
+    // this.logRequestDetails(req);
 
     // Log to file
     this.logToFile(req);
     next();
   }
-  private logRequestDetails(req: Request) {
-    this.logger.log(`Request -${req}`);
-  }
+  // private logRequestDetails(req: Request) {
+  //   this.logger.log(`Request -${req}`);
+  // }
 
   private logToFile(req: Request) {
     const logData = {

@@ -11,4 +11,13 @@ export class UpdateUserDto extends CreateUserDto {
   @IsObject()
   @IsNotEmptyObject()
   address: AddressDto;
+
+  @IsOptional()
+  lastName: string;
+
+  @IsOptional()
+  firstName: string;
+
+  @IsOptional()
+  email: string;
 }

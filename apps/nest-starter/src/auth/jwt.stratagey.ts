@@ -15,7 +15,7 @@ export class JWTStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(email: string, password: string) {
-    console.log('inside jwt strategy', email, password);
+    console.log('inside jwt strategy', email, password, 'password');
     return {
       email: email,
       password: password,
